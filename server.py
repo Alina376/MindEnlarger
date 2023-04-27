@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request, abort
-
+import os
 from data import db_session
 from data.users import User
 from data.modules import Module
@@ -272,4 +272,5 @@ def error():
 if __name__ == '__main__':
     filename = 'users.db'
     db_session.global_init(f"db/{filename}")
-    app.run(port=8084, host='127.0.0.1')
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
