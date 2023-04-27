@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="input-group mb-3 justify-content-center align-items-center">
+    <span class="input-group-text" style=color:purple id="inputGroup-sizing-default">Название модуля</span>
+    <span class="input-group-text" style=color:purple>{{ title }}</span>
+</div>
+<form class="form-inline justify-content-center align-items-center" method="POST" action="">
+    {% for field in forms %}
+    <div class="input-group">
+        <span class="input-group-text" style=color:purple>{{ field[2] }}</span>
+        <span class="input-group-text" style=color:purple>Слово</span>
+        <input type="text" class="form-control" name={{ field[0] }} value="{{ field[3] }}">
+        <span class="input-group-text" style=color:purple>Перевод</span>
+        <input type="text" class="form-control" name={{ field[1] }} value="{{ field[4] }}">
+    </div>
+    {% endfor %}
+    <div>
+        <button type="submit" class="btn" style="color: purple">Сохранить</button>
+    </div>
+</form>
+{% endblock %}

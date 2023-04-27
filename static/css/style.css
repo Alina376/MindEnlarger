@@ -1,0 +1,46 @@
+$colors: (
+  "blue":       $blue,
+  "indigo":     $indigo-900,
+  "purple":     $purple-300,
+  "pink":       $pink-100,
+  "red":        $red,
+  "orange":     $orange,
+  "yellow":     $yellow,
+  "green":      $green,
+  "teal":       $teal,
+  "cyan":       $cyan,
+  "black":      $black,
+  "white":      $white,
+  "gray":       $gray-600,
+  "gray-dark":  $gray-800
+);
+
+h1 {
+   margin-left: auto;
+   margin-right: auto;
+}
+
+form.login_form {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 450px;
+    background-color: #f3daf7;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.mycarousel {
+  position: relative;
+}
+
+.mycarousel .carousel-inner .carousel-item {
+    height: 800px;
+    width: 100%;
+}
+
+.mycarousel .carousel-inner .carousel-item img {
+  object-fit: cover;
+  height: 800px;
+  width: 100%;
+}

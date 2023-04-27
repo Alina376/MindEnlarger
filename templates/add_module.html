@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form class="form-inline" method="POST" action="">
+    <div class="input-group mb-3">
+        <span class="input-group-text" style=color:purple id="inputGroup-sizing-default">Название модуля</span>
+        <input type="text" class="form-control" aria-label="input title" name="title" aria-describedby="inputGroup-sizing-default">
+    </div>
+<div class="form-group">
+    <div class="input-group">
+            <select name="comp_select" class="selectpicker form-control">
+              <option selected value="1">1</option>
+              {% for i in range(2, 101) %}
+              <option value="{{ i }}">{{ i }}</option>
+              {% endfor %}
+            </select>
+    </div>
+    <button type="submit" class="btn" style="color: purple">Начать заполнение полей</button>
+  </div>
+</form>
+{% endblock %}

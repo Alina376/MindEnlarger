@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form class="form-inline" method="POST" action="">
+    {% for field in forms %}
+    <div class="row justify-content-center align-items-center">
+        <span class="input-group-text" style=color:purple>{{ field[2] }}</span>
+        <span class="input-group-text" style=color:purple>Слово</span>
+        <input type="text" class="form-control" name={{ field[0] }} id="{{ field[0] }}">
+        <span class="input-group-text" style=color:purple>Перевод</span>
+        <input type="text" class="form-control" name={{ field[1] }} id="{{ field[1] }}">
+    </div>
+    {% endfor %}
+    <div>
+        <button type="submit" class="btn" style="color: purple">Сохранить</button>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <title>home page</title>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #f3daf7">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="color: purple" href="/">ME: Mind Enlarger</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" style="color: purple" aria-current="page" href="/">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: purple" href="/all_modules">Учебные модули</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: purple" href="/add_module">Добавить модуль</a>
+        </li>
+          {% if current_user.is_authenticated %}
+          <li class="nav-item">
+          <a class="nav-link" style="color: purple" href="/get_translation">Перевести слова</a>
+        </li>
+          {% set ava = current_user.avatar %}
+          <li class="nav-item">
+          <a class="nav-link" style="color: purple" href="/add_avatar">Добавить аватарку</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" style="color: purple" href="/logout">Выйти</a>
+          </li>
+          <li class="nav-item">
+              <img src="/static/img/{{ ava }}" style="width: 50px; height: 50px" class="rounded-circle" alt="Avatar" />
+          </li>
+          {% else %}
+          <li class="nav-item">
+          <a class="nav-link" style="color: purple" href="/register">Зарегистрироваться</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" style="color: purple" href="/login">Войти</a>
+          </li>
+          <li class="nav-item">
+              <img src="/static/img/no_avatar.jpg" style="width: 50px; height: 50px" class="rounded-circle" alt="Avatar" />
+          </li>
+          {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+    {% block content %}{% endblock %}
+</main>
+ <script>
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {return new bootstrap.Popover(popoverTriggerEl)})
+</script>
+</body>
+</html>

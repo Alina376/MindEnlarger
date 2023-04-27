@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+{% for module in modules %}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ module.module_title }}</h5>
+    <p class="card-text">Модуль {{ module.module_title }} пользователя {{ current_user.login }}</p>
+    <a href="/study/{{ module.module_id }}" class="card-link" style=color:purple>Изучать этот модуль</a>
+    <a href="/edit_module/{{ module.module_title }}" class="card-link" style=color:purple>Редактировать этот модуль</a>
+    <a href="delete_module/{{ module.module_id }}" class="card-link" style=color:purple>Удалить этот модуль</a>
+  </div>
+</div>
+{% endfor %}
+  </div>
+{% endblock %}

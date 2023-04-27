@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form class="form-inline" action="">
+    <span class="input-group-text" style=color:purple>Введенное слово: {{ word }}</span>
+    <span class="input-group-text" style=color:purple>Перевод: {{ translation }}</span>
+    <div>
+        <a class="btn" href="/get_translation" style="color: purple">Назад</a>
+    </div>
+    <div>
+        <a class="btn" href="/" style="color: purple">Перейти на главную страницу</a>
+    </div>
+</form>
+{% endblock %}

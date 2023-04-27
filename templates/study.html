@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style type="text/css">
+.image-flip:hover .backside, .image-flip.hover .backside {
+-webkit-transform: rotateY(0deg);
+-moz-transform: rotateY(0deg);
+-o-transform: rotateY(0deg);
+-ms-transform: rotateY(0deg);
+transform: rotateY(0deg);
+}
+.image-flip:hover .frontside, .image-flip.hover .frontside {
+-webkit-transform: rotateY(180deg);
+-moz-transform: rotateY(180deg);
+-o-transform: rotateY(180deg);
+transform: rotateY(180deg);
+}
+.image-flip {
+margin-bottom:200px;
+width: 300px;
+height: 250px;
+}
+.mainflip {
+-webkit-transition: 1s;
+-webkit-transform-style: preserve-3d;
+-ms-transition: 1s;
+-moz-transition: 1s;
+-moz-transform: perspective(1000px);
+-moz-transform-style: preserve-3d;
+-ms-transform-style: preserve-3d;
+transition: 1s;
+transform-style: preserve-3d;
+position: relative;
+}
+.frontside, .backside {
+-webkit-backface-visibility: hidden;
+-moz-backface-visibility: hidden;
+-ms-backface-visibility: hidden;
+backface-visibility: hidden;
+-webkit-transition: 1s;
+-webkit-transform-style: preserve-3d;
+-moz-transition: 1s;
+-moz-transform-style: preserve-3d;
+-o-transition: 1s;
+-o-transform-style: preserve-3d;
+-ms-transition: 1s;
+-ms-transform-style: preserve-3d;
+transition: 1s;
+transform-style: preserve-3d;
+position: absolute;
+top: 0;
+left: 0;
+}
+.frontside {
+-webkit-transform: rotateY(0deg);
+-ms-transform: rotateY(0deg);
+z-index: 2;
+}
+.backside {
+background: white;
+-webkit-transform: rotateY(-180deg);
+-moz-transform: rotateY(-180deg);
+-o-transform: rotateY(-180deg);
+-ms-transform: rotateY(-180deg);
+transform: rotateY(-180deg);
+}
+.card, .card-img-top {
+border-radius: 0;
+}
+</style>
+<div class="container d-flex align-items-center justify-content-center flex-wrap">
+{% for word, translation in all_words: %}
+<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+<div class="mainflip">
+<div class="frontside">
+<div class="card justify-content-center align-items-center" style="width:20rem;">
+<div class="card-body">
+<h4 class="card-title" style="color: purple">Слово</h4>
+<p class="card-text" style="color: purple">{{ word }}</p>
+</div>
+</div>
+</div>
+<div class="backside">
+<div class="card justify-content-center align-items-center" style="width:20rem;">
+<div class="card-body">
+<h4 class="card-title" style="color: purple">Перевод</h4>
+<p class="card-text" style="color: purple">{{ translation }}</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
